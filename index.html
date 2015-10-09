@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Vue.js library Demo</title>
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+</head>
+<body>
+    <div id="demo">
+        <welcome message="Sandeep">
+        </welcome>
+    </div>
+</body>
+<script type="text/x-template" id="welcomeTemplate">
+    <h1>Welcome {{message}}</h1>
+</script>
+<script>
+    Vue.component('welcome', {
+        template: '#welcomeTemplate',
+        replace: true,
+        props: ['message']
+    });
+    var demo = new Vue({
+        el: '#demo',
+        data: {
+            searchQuery: '',
+            gridColumns: ['name', 'power'],
+            gridData: [
+                { name: 'Chuck Norris', power: Infinity },
+                { name: 'Bruce Lee', power: 9000 },
+                { name: 'Jackie Chan', power: 7000 },
+                { name: 'Jet Li', power: 8000 }
+            ]
+        }
+    })
+</script>
+</html>
